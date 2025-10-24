@@ -16,7 +16,7 @@ loginBtn.addEventListener('click', async (e)=>{
    })
  
    if(response.ok){
-     window.location.href = `${process.env.BASE_URL}/page/prompt`;
+     window.location.href = `https://life-automation-production-5fe3.up.railway.app/page/prompt`;
    }
   
   }catch(error){
