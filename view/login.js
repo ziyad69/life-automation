@@ -5,6 +5,7 @@ const password = document.getElementById('password');
 loginBtn.addEventListener('click', async (e)=>{
   try{
     e.preventDefault();
+    console.log('hi from click loginbtn')
    const response = await fetch(`${process.env.BASE_URL}/user/login`,{
     method:'POST',
     headers:{"Content-type":"application/json"},
