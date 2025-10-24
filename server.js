@@ -12,7 +12,10 @@ const userDBRroute = require("./Routes/userRoute");
 const pageRoute = require("./Routes/pageRoute");
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "*",
+  credentials: true,
+}));
 app.use(cookieParser());
 
 //this take the express the ability to read json files
