@@ -4,7 +4,7 @@ const notion = new Client({ auth: process.env.NOTION_KEY });
 const readTimeTable = async (req, res) => {
   try {
     const response = await notion.dataSources.query({
-      data_source_id: "28e63667-94c2-805e-adca-000bc20c5136",
+      data_source_id: process.env.NOTION_DB_TIME_TABLE,
     });
 
     const row = response.results.map((result) => {

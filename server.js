@@ -27,8 +27,8 @@ app.use("/Schedule", notionScheduleDBRoute);
 app.use("/timetable", notionTimetableDBRoute);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URL)
   .then()
   .catch( );
 
-app.listen(process.env.PORT);
+app.listen(process.env.PORT); 
