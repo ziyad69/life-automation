@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: radial-gradient(circle at center, #e3f2fd, #bbdefb);
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .loader-box {
+      width: 150px;
+      height: 150px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .circle {
+      width: 60px;
+      height: 60px;
+      border: 6px solid #2196f3;
+      border-top: 6px solid transparent;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .check {
+      font-size: 48px;
+      color: #4caf50;
+      display: none;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .done .circle {
+      display: none;
+    }
+
+    .done .check {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="loader-box" id="loader">
+    <div class="circle"></div>
+    <div class="check">✔</div>
+  </div>
+
+  <script>
+    // simulate loading
+    setTimeout(() => {
+      document.getElementById("loader").classList.add("done");
+    }, 3000); // بعد 3 ثواني تتبدل الدائرة بعلامة صح
+  </script>
+</body>
+</html>
