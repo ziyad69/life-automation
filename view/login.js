@@ -6,6 +6,7 @@ loginBtn.addEventListener('click', async (e)=>{
   try{
     e.preventDefault();
     console.log('hi from click loginbtn')
+    console.log('this is base url',process.env.BASE_URL)
    const response = await fetch(`${process.env.BASE_URL}/user/login`,{
     method:'POST',
     headers:{"Content-type":"application/json"},
