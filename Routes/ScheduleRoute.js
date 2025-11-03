@@ -3,7 +3,7 @@ const {readScheduleDB,createSchedule,updateSchedule} = require("./../controller/
 const {protect} = require('./../controller/security')
 const router = express.Router()
 
-router.get("/",protect,readScheduleDB)
+router.get("/",readScheduleDB)
 router.post("/",protect,createSchedule)
 router.patch("/:id",protect,updateSchedule)
 

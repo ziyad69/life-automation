@@ -16,7 +16,7 @@ btn.addEventListener('click', async (e) => {
    
 
    
-    const response = await fetch('https://life-automation-production.up.railway.app/ai', {
+    const response = await fetch(`${process.env.BASE_URL}/ai`, {
       method: 'POST',
       headers: { 
         "Content-Type": "application/json" ,

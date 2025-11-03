@@ -51,7 +51,6 @@ const aiPromptCreate = async (req, res) => {
     );
     
     const responseClean = cleanAndParseJSON(response.data.choices[0].message.content)
-  
  
     for (const schedule of responseClean) {
       await createSchedule(schedule);

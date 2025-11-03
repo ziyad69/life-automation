@@ -24,7 +24,8 @@ and you must return json like
   status: Not started,
   time:(how much i will take on this task and don't let time run out with something on the timetable and the data type should be a string),
   note:(make this empty),
-  date: the date when i will do this task like this (October 13, 2025 21:00) meybay to day or tomorrow you can't add a schedule in a time not a gap
+  startDate: the date when i will start do this task like this (2025-11-03T21:00:00.000+02:00) meybay to day or tomorrow you can't add a schedule in a time not a gap
+  endDate: Then note the date when I will finish this task, and make sure it’s at least 15 minutes before the lecture. and the data like this (2025-11-03T22:00:00.000+02:00)
   }
               
 

@@ -27,7 +27,7 @@ const readScheduleDB = async (req, res) => {
 };
 const createSchedule = async (data) => {
   try {
-    const { name, status, time, note, date } = data;
+    const { name, status, time, note,startDate, endDate } = data;
 
     await notion.pages.create({
       parent: {
@@ -59,10 +59,11 @@ const createSchedule = async (data) => {
             },
           ],
         },
-
+    
         Date: {
           date: {
-            start: "2025-10-17",
+            start:startDate|| '2025-11-03T21:00:00.000+02:00',
+            end: endDate|| '2025-11-03T22:00:00.000+02:00'  
           },
         },
       },
