@@ -41,7 +41,10 @@ app.listen(PORT, "0.0.0.0", () => {
     console.error("❌ MongoDB connection failed:", err.message);
   });
 
-
+process.on("SIGTERM", () => {
+  console.log("⛔ Server shutting down");
+  process.exit(0);
+});
 process.on("unhandledRejection", err => {
   console.error("❌ Unhandled Rejection:", err);
 });
