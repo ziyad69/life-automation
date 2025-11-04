@@ -5,6 +5,7 @@ const password = document.getElementById('password');
 loginBtn.addEventListener('click', async (e)=>{
   try{
     e.preventDefault();
+    
       console.log('this is base url',process.env.BASE_URL)
     console.log('hi from click loginbtn')
   
