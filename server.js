@@ -38,3 +38,7 @@ mongoose.connect(process.env.MONGO_URL)
   .catch((err) => {
     console.error("❌ MongoDB connection failed:", err.message);
   });
+  process.on("unhandledRejection", err => {
+  console.error("Unhandled Rejection:", err);
+});
+
