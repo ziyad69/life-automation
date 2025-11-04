@@ -35,12 +35,13 @@ mongoose.connect(process.env.MONGO_URL)
     const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on port ${PORT}`);
+  setInterval(() => {
+  console.log("🟢 Still alive...");
+}, 300000);
 });
   })
   .catch((err) => {
     console.error("❌ MongoDB connection failed:", err.message);
   });
 
-setInterval(() => {
-  console.log("🟢 Still alive...");
-}, 300000);
+
