@@ -7,13 +7,12 @@ const check = loader.querySelector('.check');
  
 
 btn.addEventListener('click', async (e) => {
- 
+  e.preventDefault
   loader.style.display = 'flex';
   circle.style.display = 'block';
   check.style.display = 'none';
 
   try {
-   
 
    
     const response = await fetch(`${process.env.BASE_URL}/ai`, {
@@ -24,7 +23,7 @@ btn.addEventListener('click', async (e) => {
       },
       body: JSON.stringify({
         prompt: frontPrompt.value || 'manage my time now i arrive to the university at 8:10 and what i will do in gaps today is tuesday'
-      })
+      })  
     });
      
   

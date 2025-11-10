@@ -16,7 +16,7 @@ const createToken = (user, statusCode, res) => {
     secure: true,  
     sameSite: 'strict'
   };
-
+  
   res.cookie("jwt", token, cookieOptions);
 
   res.status(statusCode).send("success");
@@ -25,17 +25,17 @@ const protect = async (req, res, next) => {
   try {
     const token = req.cookies.jwt;  
     if (!token) {
-      res.status(500).send("oops you havn't access to my life");
+      return res.status(500).send("oops you havn't access to my life");
     }
     const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET);
     const currentUser = await User.findById(decoded.id);
 
     if (!currentUser) {
-      res.status(500).send("password or email is wrong");
+     return res.status(500).send("password or email is wrong");
     }
     next();
   } catch (error) {
-    res.status(500).send("something went wrong");
+    return res.status(500).send("something went wrong");
   }
 };
 module.exports = { createToken, protect };

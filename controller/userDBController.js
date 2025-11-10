@@ -24,14 +24,13 @@ const login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
-      res.status(500).send("plz enter email or password");
+     return res.status(500).send("plz enter email or password");
     }
     const user = await User.findOne({ email });
 
-    if (!user || (await user.isCorrectPassword(user.password, password))) {
-      res.status(500).send("email or password is not correct");
+    if (!user || !(await user.isCorrectPassword(user.password, password))) {
+      return res.status(500).send("email or password is not correct");
     }
-
     createToken(user, 200, res);
   } catch (err) {
     res.status(500).send("failed to login");

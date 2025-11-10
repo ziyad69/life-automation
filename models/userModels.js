@@ -15,11 +15,11 @@ userSchema.methods.isCorrectPassword = async function (
   password,
   passwordCheck
 ) {
-  return await bcrypt.compare(password, passwordCheck);
+  return await bcrypt.compare(passwordCheck, password);
 };
 
 userSchema.pre("save", async function (next) {
-  this.password = bcrypt.hash(this.password, 12);
+  this.password = await bcrypt.hash(this.password, 12);
   next();
 });
 const user = mongoose.model("users", userSchema);
