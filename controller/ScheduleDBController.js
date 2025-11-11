@@ -21,6 +21,7 @@ const readScheduleDB = async (req, res) => {
         date,
       };
     });
+    return res.status(200).json({ row });  
   } catch (error) {
     res.send("failed");
   }
