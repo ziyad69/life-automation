@@ -7,7 +7,7 @@ loginBtn.addEventListener('click', async (e)=>{
     
   
   
-   const response = await fetch(`${process.env.BASE_URL}/user/login`,{
+   const response = await fetch(`/user/login`,{
     method:'POST',
     headers:{"Content-type":"application/json"},
     body:JSON.stringify({
@@ -19,7 +19,7 @@ loginBtn.addEventListener('click', async (e)=>{
    })
    if(response.ok){
     
-     window.location.href = `${process.env.BASE_URL}/page/prompt`;
+     window.location.href = `/page/prompt`;
    }
   
   }catch(error){

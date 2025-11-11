@@ -15,7 +15,7 @@ btn.addEventListener('click', async (e) => {
   try {
 
    
-    const response = await fetch(`${process.env.BASE_URL}/ai`, {
+    const response = await fetch(`/ai`, {
       method: 'POST',
       headers: { 
         "Content-Type": "application/json" ,
