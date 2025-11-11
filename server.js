@@ -24,7 +24,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "view")));
 
 
-
+app.get('/healthz', (req, res) => res.status(200).send('ok'));
+app.get('/', (req, res) => res.status(200).send('ok'));
 app.use("/page", pageRoute);
 app.use("/user", userDBRroute);
 app.use("/task", notionTaskDBRoute);
