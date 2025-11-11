@@ -48,14 +48,17 @@ process.on('uncaughtException', (err) => {
   // optional: process.exit(1);
 });
 
-mongoose.connect(process.env.MONGO_URL)
-  .then(() => {
-    console.log("✅ Connected to MongoDB");
-    const PORT = process.env.PORT || 3000;
+// Start HTTP server immediately so health checks succeed even if DB is slow
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, "0.0.0.0", () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  
 });
+
+// Connect to MongoDB asynchronously
+mongoose
+  .connect(process.env.MONGO_URL)
+  .then(() => {
+    console.log("✅ Connected to MongoDB");
   })
   .catch((err) => {
     console.error("❌ MongoDB connection failed:", err.message);
