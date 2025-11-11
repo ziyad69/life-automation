@@ -21,9 +21,8 @@ app.use(cookieParser());
 //this take the express the ability to read json files
 app.use(express.json());
 //middleware
+app.use(express.static(path.join(__dirname, "view","login.html")));
 
-res.sendFile(path.join(__dirname, "..", "view", "login.html"));
-res.sendFile(path.join(__dirname, "..", "view", "view.html"));
 
 
 app.use("/page", pageRoute);
