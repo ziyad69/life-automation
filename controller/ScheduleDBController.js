@@ -21,9 +21,15 @@ const readScheduleDB = async (req, res) => {
         date,
       };
     });
-    return res.status(200).json({ row });  
+    if (res) {
+      return res.status(200).json({ rows: row });
+    }
+    return row;
   } catch (error) {
-    res.send("failed");
+    if (res) {
+      return res.send("failed");
+    }
+    return null;
   }
 };
 const createSchedule = async (data) => {

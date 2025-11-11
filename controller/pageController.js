@@ -3,7 +3,7 @@ const openLoginPage = (req, res) => {
   try {
     res.sendFile(path.join(__dirname, "..", "view", "login.html"));
   } catch (error) {
-    res.status(500), send("something went wrong");
+    res.status(500).send("something went wrong");
   }
 };
 const openPromptPage = (req, res) => {
