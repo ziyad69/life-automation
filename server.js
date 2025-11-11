@@ -29,6 +29,15 @@ app.use("/ai", aiRoute);
 app.use("/Schedule", notionScheduleDBRoute);
 app.use("/timetable", notionTimetableDBRoute);
 
+process.on('unhandledRejection', (reason, p) => {
+  console.error('Unhandled Rejection at:', p, 'reason:', reason);
+  // optional: process.exit(1);
+});
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err);
+  // optional: process.exit(1);
+});
+
 mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     console.log("✅ Connected to MongoDB");
